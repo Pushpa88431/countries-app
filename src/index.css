@@ -1,0 +1,8 @@
+.test {
+  background-image: url("globe.jpg");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  height: 800px;
+  color: rgb(153, 6, 148);
+}
