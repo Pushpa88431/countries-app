@@ -1,8 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { addFavouriteToFirebase, auth, clearFavouritesFromFirebase, removeFavouriteFromFirebase } from '../auth/firebase';
+import { createSlice } from "@reduxjs/toolkit";
+import {
+  addFavouriteToFirebase,
+  auth,
+  clearFavouritesFromFirebase,
+  removeFavouriteFromFirebase,
+} from "../auth/firebase";
 
 export const favouritesSlice = createSlice({
-  name: 'favourites',
+  name: "favourites",
   initialState: {
     favourites: [],
   },
@@ -11,7 +16,7 @@ export const favouritesSlice = createSlice({
       state.favourites = action.payload;
     },
     addFavouriteCountries(state, action) {
-      if (state.favourites.some((value) => value === action.payload)) 
+      if (state.favourites.some((value) => value === action.payload))
         alert(action.payload);
       state.favourites = [...state.favourites, action.payload];
 
@@ -33,7 +38,7 @@ export const favouritesSlice = createSlice({
         removeFavouriteFromFirebase(user.uid, action.payload);
       }
     },
-    clearFavouriteCountriesgr(state) {
+    clearFavouriteCountries(state) {
       state.favourites = [];
       const user = auth.currentUser;
       if (user) {
@@ -43,6 +48,11 @@ export const favouritesSlice = createSlice({
   },
 });
 
-export const { getFavouriteCountries, addFavouriteCountries, clearFavouriteCountries, removeFavouriteCountries } = favouritesSlice.actions;
+export const {
+  getFavouriteCountries,
+  addFavouriteCountries,
+  clearFavouriteCountries,
+  removeFavouriteCountries,
+} = favouritesSlice.actions;
 
 export default favouritesSlice.reducer;

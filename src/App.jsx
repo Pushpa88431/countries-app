@@ -44,15 +44,20 @@ function App() {
         },
         {
           path: "/favourites",
-          element: <Favourites />
+          element: <Favourites />,
+        },
+        {
+          path: "favourites/:single",
+          element: <CountriesSingle />,
         },
         {
           path: "/register",
-          element: <Register />
-        },{
+          element: <Register />,
+        },
+        {
           path: "/login",
-          element: <Login />
-        }
+          element: <Login />,
+        },
       ],
     },
   ]);
